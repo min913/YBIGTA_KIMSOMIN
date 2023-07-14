@@ -1,0 +1,19 @@
+WITH CategorySales AS (
+    SELECT 
+        c.CategoryID,
+        c.CategoryName,
+        od.Quantity,
+        p.Price
+    FROM OrderDetails as od
+    JOIN Products as p ON od.ProductID = p.ProductID
+    JOIN Categories as c ON p.CategoryID = c.CategoryID
+)
+
+SELECT 
+    CategoryName, 
+    SUM(Quantity) as TotalQuantitySold, 
+    SUM(Quantity * Price) as TotalPriceSold
+FROM CategorySales
+GROUP BY CategoryID, CategoryName
+HAVING SUM(Quantity) > 2000
+ORDER BY TotalQuantitySold DESC;
