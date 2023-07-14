@@ -1,0 +1,15 @@
+SELECT
+    Customers.CustomerName as '고객 이름',
+    SUM(orderdetails.Quantity * Products.price) AS '총 구매 금액'
+FROM
+    Customers,
+    Orders,
+    orderdetails,
+    Products
+WHERE
+    Orders.CustomerID = Customers.CustomerID
+AND
+    Orders.OrderID = orderdetails.OrderID
+AND
+    orderdetails.ProductID = Products.ProductID
+GROUP BY Customers.CustomerName;
