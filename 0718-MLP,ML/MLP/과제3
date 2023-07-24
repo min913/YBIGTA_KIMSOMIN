@@ -1,0 +1,3 @@
+3. MLP model과 기존 ML model의 차이점을 최소 2가지 측면에서 서술하기
+답1: MLP는 FEATURE-ENGINEERING을 사람이 하지 않고, 자동으로 가능하기에 기존 ML이 다룰 수 없던 비정형 DATA를 다룰 수 있다.
+답2: 위와 같은 비정형 데이터를 다루기 위해 역전파 등 다양한 것을 도입하였으며, 이로 인해 생긴 GRADIENT VANISHING 현상을 막기 위해 LEAKY-RELU 등 다양한 방법을 고안하였다.
